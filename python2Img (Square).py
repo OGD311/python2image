@@ -16,7 +16,6 @@ def readFile(fileName):
     return newlines
 
 def createImg(lines):
-    print(math.ceil(math.sqrt(len(lines)))/2)
     size = (math.ceil(math.sqrt(len(lines))), math.ceil(math.sqrt(len(lines))))
 
     img = Image.new(mode="RGB", size=size)
@@ -42,6 +41,7 @@ def readChrs(img, file):
     width, height = img.size
     fileName = file.replace('.png', '.py')
     with open(fileName, 'w') as file:
+        indentation = 0
         line = ''
         for y in range(height):
             for x in range(width):
@@ -49,18 +49,11 @@ def readChrs(img, file):
                 char = next((ch for ch, rgb in ascii_colors.items() if rgb == curPixel), None)
                 line += char if char and char != '\x00' else ' '  # Replace NUL character with space
                 if char == '\n':
-                    file.write(line.rstrip() + '\n')
+                    file.write(' ' * indentation + line.rstrip() + '\n')
                     line = ''  # Reset line for the next line in the image
-
-                if x == width - 1:
-                    file.write(line.rstrip())
-                    line = ''  # Reset line for the next line in the image
-                    x = 0
-                    break
-
-
-
-
+                    indentation = 0  # Reset indentation for the next line
+                if x == width - 1 and y == height - 1:
+                    file.write(' ' * indentation + line.rstrip())  # Write the last line with proper indentation
 
 
 while True:
@@ -68,7 +61,6 @@ while True:
     if '.py' in file:
         print('Converting to image...')
         content = readFile(file)
-        saveImg(createImg(content), file.replace('.py', '.png'))
         img = addChrs(createImg(content), content)
         img = img.crop(img.getbbox())  # Squish image
         saveImg(img, file.replace('.py', '.png'))
