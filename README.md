@@ -1,5 +1,5 @@
 # python2image
-This is quite a silly program (as it doesnt really do anythin) but it is an easier way to send code files to people (some apps dont let you send .py files)
+This is quite a silly program (as it doesnt really do anything meaningful) but it is an easier way to send code files to people (some apps dont let you send .py files)
 This app reads the contents of the python file, then converts the characters into colours, adds them to an image file and then saves it (with the same name as the python file)
 This can be reversed as well, with all the pixels read and the characters put back into their respective place (with necessary linebreaks, \n, etc)
 
