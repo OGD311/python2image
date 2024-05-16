@@ -18,4 +18,4 @@ Gets converted to: <br>
 This version of the code converts it into an image, but makes the image square (much nicer to look at and overall a smaller image):
 ![test.py](https://github.com/OGD311/python2image/assets/114223604/686403e0-30da-4f0c-9d51-cabe76b42c12) <br>
 Gets converted to: <br>
-![testSquare.png](https://github.com/OGD311/python2image/assets/114223604/f2e2fbe0-bd62-44dc-903a-4f2b66949bfc)
+<br>![testSquare.png](https://github.com/OGD311/python2image/assets/114223604/f2e2fbe0-bd62-44dc-903a-4f2b66949bfc)
